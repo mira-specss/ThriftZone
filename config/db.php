@@ -1,15 +1,15 @@
 <?php
 /**
  * config/db.php
- * Database connection using PDO.
- * Edit the constants below to match your environment.
+ * Database connection using PDO (PostgreSQL).
+ * Terhubung otomatis dengan konfigurasi Docker & GCP.
  */
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'thriftzone');
-define('DB_USER', 'root');       // Change for production
-define('DB_PASS', '');           // Change for production
-define('DB_CHARSET', 'utf8mb4');
+define('DB_HOST', getenv('DB_HOST') ?: 'db');
+define('DB_PORT', getenv('DB_PORT') ?: '5432');
+define('DB_NAME', getenv('DB_NAME') ?: 'thriftzone_db');
+define('DB_USER', getenv('DB_USER') ?: 'thrift_user');
+define('DB_PASS', getenv('DB_PASS') ?: 'Rahasia123!');
 
 /**
  * Returns a PDO connection (singleton pattern).
@@ -19,9 +19,10 @@ function getDB(): PDO {
     static $pdo = null;
 
     if ($pdo === null) {
-        $dsn = 'mysql:host=' . DB_HOST
-             . ';dbname=' . DB_NAME
-             . ';charset=' . DB_CHARSET;
+        // DSN Format khusus PostgreSQL (pgsql)
+        $dsn = 'pgsql:host=' . DB_HOST
+             . ';port=' . DB_PORT
+             . ';dbname=' . DB_NAME . ';';
 
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -34,4 +35,3 @@ function getDB(): PDO {
 
     return $pdo;
 }
-
