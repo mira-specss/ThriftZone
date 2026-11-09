@@ -1,0 +1,35 @@
+# ThriftZone – Apache configuration
+# Protects sensitive files and sets correct MIME types for SVG images.
+
+# Security: Block access to config/ and PHP in uploads/
+<FilesMatch "\.(sql|md|log|ini|env)$">
+    Require all denied
+</FilesMatch>
+
+<Directory "config">
+    Require all denied
+</Directory>
+
+# Prevent direct PHP execution inside uploads/
+<Directory "uploads">
+    <FilesMatch "\.php$">
+        Require all denied
+    </FilesMatch>
+</Directory>
+
+# Serve SVG files with correct MIME type (placeholder images are SVG renamed .jpg/.png)
+<IfModule mod_mime.c>
+    AddType image/svg+xml .svg .png .jpg
+</IfModule>
+
+# Enable URL rewriting (optional – not required for this project)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /thriftzone/
+</IfModule>
+
+# PHP settings
+php_value upload_max_filesize 2M
+php_value post_max_size 4M
+php_value max_execution_time 30
+
