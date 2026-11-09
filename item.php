@@ -28,7 +28,7 @@ if (!$item) {
     http_response_code(404);
     $pageTitle = 'Barang tidak ditemukan';
     include __DIR__ . '/includes/header.php';
-    echo '<div class="container page-wrap"><div class="empty-state"><i class="bi bi-exclamation-circle"></i><h3>Barang tidak ditemukan</h3><a href="/thriftzone/" class="btn btn-primary mt-2">Kembali ke Beranda</a></div></div>';
+    echo '<div class="container page-wrap"><div class="empty-state"><i class="bi bi-exclamation-circle"></i><h3>Barang tidak ditemukan</h3><a href="/" class="btn btn-primary mt-2">Kembali ke Beranda</a></div></div>';
     include __DIR__ . '/includes/footer.php';
     exit;
 }
@@ -55,10 +55,10 @@ include __DIR__ . '/includes/header.php';
     <!-- Left: Photo -->
     <div>
         <img
-            src="/thriftzone/<?= htmlspecialchars($item['photo']) ?>"
+            src="/<?= htmlspecialchars($item['photo']) ?>"
             alt="<?= htmlspecialchars($item['title']) ?>"
             class="item-detail-img"
-            onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'"
+            onerror="this.src='/assets/img/sample/placeholder.svg'"
         >
     </div>
 
@@ -120,7 +120,7 @@ include __DIR__ . '/includes/header.php';
             <?php else: ?>
             <div class="alert alert-info">
                 <i class="bi bi-info-circle"></i>
-                <a href="/thriftzone/login.php">Masuk</a> atau <a href="/thriftzone/register.php">daftar</a> untuk membeli barang ini.
+                <a href="/login.php">Masuk</a> atau <a href="/register.php">daftar</a> untuk membeli barang ini.
             </div>
             <?php endif; ?>
         <?php else: ?>

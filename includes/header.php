@@ -36,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
     <title><?= htmlspecialchars($pageTitle ?? 'ThriftZone') ?> | ThriftZone</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/thriftzone/assets/img/logo.png">
+    <link rel="icon" type="image/png" href="/assets/img/logo.png">
 
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +47,7 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Main stylesheet -->
-    <link rel="stylesheet" href="/thriftzone/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
@@ -56,12 +56,12 @@ if (isset($_SESSION['user_id'])) {
     <div class="header-inner container">
 
         <!-- Logo -->
-        <a href="/thriftzone/" class="header-logo" aria-label="ThriftZone Home">
-            <img src="/thriftzone/assets/img/logo.png" alt="ThriftZone Logo" class="logo-img">
+        <a href="/" class="header-logo" aria-label="ThriftZone Home">
+            <img src="/assets/img/logo.png" alt="ThriftZone Logo" class="logo-img">
         </a>
 
         <!-- Search bar -->
-        <form class="search-form" action="/thriftzone/search.php" method="GET" role="search">
+        <form class="search-form" action="/search.php" method="GET" role="search">
             <input
                 type="search"
                 name="q"
@@ -80,13 +80,13 @@ if (isset($_SESSION['user_id'])) {
 
             <?php if (isset($_SESSION['user_id'])): ?>
                 <!-- Sell button -->
-                <a href="/thriftzone/sell.php" class="nav-btn btn-sell" title="Jual Barang">
+                <a href="/sell.php" class="nav-btn btn-sell" title="Jual Barang">
                     <i class="bi bi-plus-circle"></i>
                     <span class="nav-label">Jual</span>
                 </a>
 
                 <!-- Wishlist -->
-                <a href="/thriftzone/wishlist.php" class="nav-icon-link" title="Wishlist">
+                <a href="/wishlist.php" class="nav-icon-link" title="Wishlist">
                     <i class="bi bi-heart"></i>
                     <?php if ($wishlistCount > 0): ?>
                         <span class="badge"><?= $wishlistCount ?></span>
@@ -95,7 +95,7 @@ if (isset($_SESSION['user_id'])) {
                 </a>
 
                 <!-- Cart -->
-                <a href="/thriftzone/cart.php" class="nav-icon-link" title="Keranjang">
+                <a href="/cart.php" class="nav-icon-link" title="Keranjang">
                     <i class="bi bi-bag"></i>
                     <?php if ($cartCount > 0): ?>
                         <span class="badge"><?= $cartCount ?></span>
@@ -104,21 +104,21 @@ if (isset($_SESSION['user_id'])) {
                 </a>
 
                 <!-- My Orders -->
-                <a href="/thriftzone/orders.php" class="nav-icon-link" title="Pesanan Saya">
+                <a href="/orders.php" class="nav-icon-link" title="Pesanan Saya">
                     <i class="bi bi-box-seam"></i>
                     <span class="nav-label">Pesanan</span>
                 </a>
 
                 <!-- Logout -->
-                <a href="/thriftzone/logout.php" class="nav-icon-link" title="Keluar">
+                <a href="/logout.php" class="nav-icon-link" title="Keluar">
                     <i class="bi bi-box-arrow-right"></i>
                     <span class="nav-label">Keluar</span>
                 </a>
 
             <?php else: ?>
                 <!-- Login / Register -->
-                <a href="/thriftzone/login.php" class="nav-btn btn-login">Masuk</a>
-                <a href="/thriftzone/register.php" class="nav-btn btn-register">Daftar</a>
+                <a href="/login.php" class="nav-btn btn-login">Masuk</a>
+                <a href="/register.php" class="nav-btn btn-register">Daftar</a>
             <?php endif; ?>
         </nav>
 
@@ -131,14 +131,14 @@ if (isset($_SESSION['user_id'])) {
     <!-- Mobile nav drawer -->
     <div class="mobile-nav" id="mobileNav" hidden>
         <?php if (isset($_SESSION['user_id'])): ?>
-            <a href="/thriftzone/sell.php"><i class="bi bi-plus-circle"></i> Jual Barang</a>
-            <a href="/thriftzone/wishlist.php"><i class="bi bi-heart"></i> Wishlist <?= $wishlistCount > 0 ? "($wishlistCount)" : '' ?></a>
-            <a href="/thriftzone/cart.php"><i class="bi bi-bag"></i> Keranjang <?= $cartCount > 0 ? "($cartCount)" : '' ?></a>
-            <a href="/thriftzone/orders.php"><i class="bi bi-box-seam"></i> Pesanan Saya</a>
-            <a href="/thriftzone/logout.php"><i class="bi bi-box-arrow-right"></i> Keluar</a>
+            <a href="/sell.php"><i class="bi bi-plus-circle"></i> Jual Barang</a>
+            <a href="/wishlist.php"><i class="bi bi-heart"></i> Wishlist <?= $wishlistCount > 0 ? "($wishlistCount)" : '' ?></a>
+            <a href="/cart.php"><i class="bi bi-bag"></i> Keranjang <?= $cartCount > 0 ? "($cartCount)" : '' ?></a>
+            <a href="/orders.php"><i class="bi bi-box-seam"></i> Pesanan Saya</a>
+            <a href="/logout.php"><i class="bi bi-box-arrow-right"></i> Keluar</a>
         <?php else: ?>
-            <a href="/thriftzone/login.php"><i class="bi bi-person"></i> Masuk</a>
-            <a href="/thriftzone/register.php"><i class="bi bi-person-plus"></i> Daftar</a>
+            <a href="/login.php"><i class="bi bi-person"></i> Masuk</a>
+            <a href="/register.php"><i class="bi bi-person-plus"></i> Daftar</a>
         <?php endif; ?>
     </div>
 </header>
@@ -154,7 +154,7 @@ if (isset($_SESSION['user_id'])) {
             foreach ($cats as $cat):
                 $active = (isset($_GET['id']) && (int)$_GET['id'] === (int)$cat['id']) ? ' active' : '';
         ?>
-            <a href="/thriftzone/category.php?id=<?= $cat['id'] ?>"
+            <a href="/category.php?id=<?= $cat['id'] ?>"
                class="cat-link<?= $active ?>">
                 <i class="bi <?= htmlspecialchars($cat['icon']) ?>"></i>
                 <?= htmlspecialchars($cat['name']) ?>

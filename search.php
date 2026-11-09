@@ -48,18 +48,18 @@ include __DIR__ . '/includes/header.php';
             <i class="bi bi-search"></i>
             <h3>Barang tidak ditemukan</h3>
             <p>Coba kata kunci yang berbeda atau jelajahi kategori.</p>
-            <a href="/thriftzone/" class="btn btn-primary mt-2">Kembali ke Beranda</a>
+            <a href="/" class="btn btn-primary mt-2">Kembali ke Beranda</a>
         </div>
     <?php else: ?>
         <p class="text-muted mb-2"><?= count($items) ?> barang ditemukan</p>
         <div class="items-grid">
             <?php foreach ($items as $item): ?>
-                <a href="/thriftzone/item.php?id=<?= $item['id'] ?>" class="item-card">
+                <a href="/item.php?id=<?= $item['id'] ?>" class="item-card">
                     <img
-                        src="/thriftzone/<?= htmlspecialchars($item['photo']) ?>"
+                        src="/<?= htmlspecialchars($item['photo']) ?>"
                         alt="<?= htmlspecialchars($item['title']) ?>"
                         class="item-card-img"
-                        onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'"
+                        onerror="this.src='/assets/img/sample/placeholder.svg'"
                     >
                     <div class="item-card-body">
                         <div class="item-card-title"><?= htmlspecialchars($item['title']) ?></div>

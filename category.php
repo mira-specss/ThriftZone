@@ -205,12 +205,12 @@ include __DIR__ . '/includes/header.php';
     function cardHTML(item) {
         const sold   = item.is_sold == 1;
         const price  = 'Rp' + parseInt(item.price).toLocaleString('id-ID');
-        const img    = '/thriftzone/' + item.photo;
+        const img    = '/' + item.photo;
         const badge  = sold ? '<span class="badge-sold">Terjual</span>' : '<span class="badge-condition">' + item.condition + '</span>';
         return `
-        <a href="/thriftzone/item.php?id=${item.id}" class="item-card${sold ? ' opacity-70' : ''}">
+        <a href="/item.php?id=${item.id}" class="item-card${sold ? ' opacity-70' : ''}">
             <img src="${img}" alt="${item.title}" class="item-card-img"
-                 onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'">
+                 onerror="this.src='/assets/img/sample/placeholder.svg'">
             <div class="item-card-body">
                 <div class="item-card-title">${item.title}</div>
                 <div class="item-card-price">${price}</div>
@@ -242,7 +242,7 @@ include __DIR__ . '/includes/header.php';
         if (conditions.length) params.set('condition', conditions.join(','));
         params.set('sort', sort);
 
-        fetch('/thriftzone/api/items.php?' + params.toString())
+        fetch('/api/items.php?' + params.toString())
             .then(r => r.json())
             .then(data => {
                 spinner.style.display = 'none';

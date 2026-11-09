@@ -8,7 +8,7 @@ require_once __DIR__ . '/config/db.php';
 
 // Must be logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -44,18 +44,18 @@ include __DIR__ . '/includes/header.php';
             <i class="bi bi-heart"></i>
             <h3>Wishlist masih kosong</h3>
             <p>Tambahkan barang yang kamu suka ke wishlist dari halaman detail barang.</p>
-            <a href="/thriftzone/" class="btn btn-primary mt-2">Jelajahi Barang</a>
+            <a href="/" class="btn btn-primary mt-2">Jelajahi Barang</a>
         </div>
     <?php else: ?>
         <div class="items-grid" id="wishlistGrid">
             <?php foreach ($items as $item): ?>
             <div class="item-card-wrap" style="position:relative;">
-                <a href="/thriftzone/item.php?id=<?= $item['id'] ?>" class="item-card">
+                <a href="/item.php?id=<?= $item['id'] ?>" class="item-card">
                     <img
-                        src="/thriftzone/<?= htmlspecialchars($item['photo']) ?>"
+                        src="/<?= htmlspecialchars($item['photo']) ?>"
                         alt="<?= htmlspecialchars($item['title']) ?>"
                         class="item-card-img"
-                        onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'"
+                        onerror="this.src='/assets/img/sample/placeholder.svg'"
                     >
                     <div class="item-card-body">
                         <div class="item-card-title"><?= htmlspecialchars($item['title']) ?></div>

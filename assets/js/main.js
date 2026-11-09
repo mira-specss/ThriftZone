@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const itemId = this.dataset.itemId;
             addCartBtn.disabled = true;
             try {
-                const res = await fetch('/thriftzone/api/cart.php', {
+                const res = await fetch('/api/cart.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'add', item_id: itemId })
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const itemId = this.dataset.itemId;
             const isWished = this.dataset.wished === '1';
             try {
-                const res = await fetch('/thriftzone/api/wishlist.php', {
+                const res = await fetch('/api/wishlist.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const itemId = this.dataset.itemId;
             const row = this.closest('tr');
             try {
-                const res = await fetch('/thriftzone/api/cart.php', {
+                const res = await fetch('/api/cart.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'remove', item_id: itemId })
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const itemId = this.dataset.itemId;
             const card = this.closest('.item-card-wrap');
             try {
-                const res = await fetch('/thriftzone/api/wishlist.php', {
+                const res = await fetch('/api/wishlist.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'remove', item_id: itemId })
@@ -276,14 +276,14 @@ document.addEventListener('DOMContentLoaded', function () {
             paidBtn.disabled = true;
             paidBtn.textContent = 'Memproses…';
             try {
-                const res = await fetch('/thriftzone/api/payment.php', {
+                const res = await fetch('/api/payment.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ order_id: orderId })
                 });
                 const data = await res.json();
                 if (data.success) {
-                    window.location.href = '/thriftzone/thankyou.php?order_id=' + orderId;
+                    window.location.href = '/thankyou.php?order_id=' + orderId;
                 } else {
                     showToast(data.message || 'Gagal.', 'error');
                     paidBtn.disabled = false;
@@ -307,7 +307,7 @@ document.addEventListener('click', async function (e) {
 
     btn.disabled = true;
     try {
-        const res = await fetch('/thriftzone/api/cancel_order.php', {
+        const res = await fetch('/api/cancel_order.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ order_id: btn.dataset.orderId })
@@ -315,7 +315,7 @@ document.addEventListener('click', async function (e) {
         const data = await res.json();
         if (data.success) {
             showToast('Pesanan dibatalkan.');
-            setTimeout(() => { window.location.href = '/thriftzone/orders.php'; }, 700);
+            setTimeout(() => { window.location.href = '/orders.php'; }, 700);
         } else {
             showToast(data.message || 'Gagal membatalkan.', 'error');
             btn.disabled = false;

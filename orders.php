@@ -9,7 +9,7 @@ session_start();
 require_once __DIR__ . '/config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -63,7 +63,7 @@ include __DIR__ . '/includes/header.php';
             <i class="bi bi-box-seam"></i>
             <h3>Belum ada pesanan</h3>
             <p>Yuk, mulai belanja barang preloved favoritmu!</p>
-            <a href="/thriftzone/" class="btn btn-primary mt-2">Belanja Sekarang</a>
+            <a href="/" class="btn btn-primary mt-2">Belanja Sekarang</a>
         </div>
     <?php else: ?>
         <?php foreach ($orders as $order): ?>
@@ -95,10 +95,10 @@ include __DIR__ . '/includes/header.php';
                     <?php foreach ($orderItems as $oi): ?>
                     <div style="display:flex;align-items:center;gap:8px;background:var(--color-bg);border-radius:var(--radius-sm);padding:6px 10px;font-size:13px;">
                         <img
-                            src="/thriftzone/<?= htmlspecialchars($oi['photo']) ?>"
+                            src="/<?= htmlspecialchars($oi['photo']) ?>"
                             alt="<?= htmlspecialchars($oi['title']) ?>"
                             style="width:40px;height:40px;object-fit:cover;border-radius:4px;"
-                            onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'"
+                            onerror="this.src='/assets/img/sample/placeholder.svg'"
                         >
                         <div>
                             <div style="font-weight:600;"><?= htmlspecialchars($oi['title']) ?></div>
@@ -131,7 +131,7 @@ include __DIR__ . '/includes/header.php';
                                     data-order-id="<?= $order['id'] ?>">
                                 <i class="bi bi-x-circle"></i> Batalkan
                             </button>
-                            <a href="/thriftzone/payment.php?order_id=<?= $order['id'] ?>" class="btn btn-primary btn-sm">
+                            <a href="/payment.php?order_id=<?= $order['id'] ?>" class="btn btn-primary btn-sm">
                                 <i class="bi bi-credit-card"></i> Bayar Sekarang
                             </a>
                         </div>

@@ -37,11 +37,11 @@ include __DIR__ . '/includes/header.php';
             <h1>Belanja Preloved, <span style="color:var(--color-teal-light)">Hemat &amp; Berkelas</span></h1>
             <p>Temukan barang second-hand berkualitas dari seluruh Indonesia. Jual barangmu yang tidak terpakai sekarang!</p>
             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-                <a href="/thriftzone/category.php?id=1" class="btn btn-primary">Jelajahi Barang</a>
+                <a href="/category.php?id=1" class="btn btn-primary">Jelajahi Barang</a>
                 <?php if (!isset($_SESSION['user_id'])): ?>
-                    <a href="/thriftzone/register.php" class="btn btn-secondary" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.4);">Daftar Gratis</a>
+                    <a href="/register.php" class="btn btn-secondary" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.4);">Daftar Gratis</a>
                 <?php else: ?>
-                    <a href="/thriftzone/sell.php" class="btn btn-secondary" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.4);">Jual Barang</a>
+                    <a href="/sell.php" class="btn btn-secondary" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.4);">Jual Barang</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -65,17 +65,17 @@ include __DIR__ . '/includes/header.php';
                 <i class="bi bi-box-open"></i>
                 <h3>Belum ada barang</h3>
                 <p>Import <code>database.sql</code> untuk menambahkan data contoh, atau jadilah yang pertama berjualan!</p>
-                <a href="/thriftzone/sell.php" class="btn btn-primary mt-2">Jual Sekarang</a>
+                <a href="/sell.php" class="btn btn-primary mt-2">Jual Sekarang</a>
             </div>
         <?php else: ?>
             <div class="items-grid">
                 <?php foreach ($items as $item): ?>
-                    <a href="/thriftzone/item.php?id=<?= $item['id'] ?>" class="item-card">
+                    <a href="/item.php?id=<?= $item['id'] ?>" class="item-card">
                         <img
-                            src="/thriftzone/<?= htmlspecialchars($item['photo']) ?>"
+                            src="/<?= htmlspecialchars($item['photo']) ?>"
                             alt="<?= htmlspecialchars($item['title']) ?>"
                             class="item-card-img"
-                            onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'"
+                            onerror="this.src='/assets/img/sample/placeholder.svg'"
                         >
                         <div class="item-card-body">
                             <div class="item-card-title"><?= htmlspecialchars($item['title']) ?></div>
@@ -90,7 +90,7 @@ include __DIR__ . '/includes/header.php';
             </div>
 
             <div style="text-align:center;margin-top:32px;">
-                <a href="/thriftzone/category.php?id=1" class="btn btn-outline">Lihat Semua Barang</a>
+                <a href="/category.php?id=1" class="btn btn-outline">Lihat Semua Barang</a>
             </div>
         <?php endif; ?>
     </div>

@@ -7,7 +7,7 @@ session_start();
 require_once __DIR__ . '/config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -70,10 +70,10 @@ include __DIR__ . '/includes/header.php';
     <?php endif; ?>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-        <a href="/thriftzone/orders.php" class="btn btn-primary">
+        <a href="/orders.php" class="btn btn-primary">
             <i class="bi bi-box-seam"></i> Lihat Pesanan Saya
         </a>
-        <a href="/thriftzone/" class="btn btn-outline">
+        <a href="/" class="btn btn-outline">
             <i class="bi bi-house"></i> Kembali ke Beranda
         </a>
     </div>

@@ -8,7 +8,7 @@ session_start();
 require_once __DIR__ . '/config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -33,7 +33,7 @@ try {
 
 // Redirect if cart is empty
 if (empty($cartItems)) {
-    header('Location: /thriftzone/cart.php');
+    header('Location: /cart.php');
     exit;
 }
 
@@ -41,7 +41,7 @@ if (empty($cartItems)) {
 $cartItems = array_filter($cartItems, fn($ci) => !$ci['is_sold']);
 if (empty($cartItems)) {
     $_SESSION['flash'] = ['type' => 'error', 'message' => 'Semua barang di keranjang sudah terjual.'];
-    header('Location: /thriftzone/cart.php');
+    header('Location: /cart.php');
     exit;
 }
 
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->commit();
 
             // Redirect to payment
-            header('Location: /thriftzone/payment.php?order_id=' . $orderId);
+            header('Location: /payment.php?order_id=' . $orderId);
             exit;
 
         } catch (PDOException $e) {
@@ -209,10 +209,10 @@ include __DIR__ . '/includes/header.php';
         <?php foreach ($cartItems as $ci): ?>
         <div class="order-item-row">
             <img
-                src="/thriftzone/<?= htmlspecialchars($ci['photo']) ?>"
+                src="/<?= htmlspecialchars($ci['photo']) ?>"
                 alt="<?= htmlspecialchars($ci['title']) ?>"
                 class="order-thumb"
-                onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'"
+                onerror="this.src='/assets/img/sample/placeholder.svg'"
             >
             <div style="flex:1;min-width:0;">
                 <div style="font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">

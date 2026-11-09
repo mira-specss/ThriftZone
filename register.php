@@ -9,7 +9,7 @@ require_once __DIR__ . '/config/db.php';
 
 // Already logged in? Go home.
 if (isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/');
+    header('Location: /');
     exit;
 }
 
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id']   = $userId;
                 $_SESSION['user_name'] = $old['name'];
                 $_SESSION['flash']     = ['type' => 'success', 'message' => 'Selamat datang di ThriftZone, ' . $old['name'] . '!'];
-                header('Location: /thriftzone/');
+                header('Location: /');
                 exit;
             }
         } catch (PDOException $e) {
@@ -147,7 +147,7 @@ include __DIR__ . '/includes/header.php';
         </form>
 
         <p class="auth-switch">
-            Sudah punya akun? <a href="/thriftzone/login.php">Masuk di sini</a>
+            Sudah punya akun? <a href="/login.php">Masuk di sini</a>
         </p>
     </div>
 </div>

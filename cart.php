@@ -8,7 +8,7 @@ session_start();
 require_once __DIR__ . '/config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -49,7 +49,7 @@ include __DIR__ . '/includes/header.php';
             <i class="bi bi-bag"></i>
             <h3>Keranjang masih kosong</h3>
             <p>Tambahkan barang dari halaman detail untuk mulai berbelanja.</p>
-            <a href="/thriftzone/" class="btn btn-primary mt-2">Belanja Sekarang</a>
+            <a href="/" class="btn btn-primary mt-2">Belanja Sekarang</a>
         </div>
     <?php else: ?>
 
@@ -70,14 +70,14 @@ include __DIR__ . '/includes/header.php';
                 <tr id="cart-row-<?= $ci['id'] ?>">
                     <td style="width:70px;">
                         <img
-                            src="/thriftzone/<?= htmlspecialchars($ci['photo']) ?>"
+                            src="/<?= htmlspecialchars($ci['photo']) ?>"
                             alt="<?= htmlspecialchars($ci['title']) ?>"
                             class="cart-thumb"
-                            onerror="this.src='/thriftzone/assets/img/sample/placeholder.svg'"
+                            onerror="this.src='/assets/img/sample/placeholder.svg'"
                         >
                     </td>
                     <td>
-                        <a href="/thriftzone/item.php?id=<?= $ci['id'] ?>" style="font-weight:600;color:var(--color-navy);">
+                        <a href="/item.php?id=<?= $ci['id'] ?>" style="font-weight:600;color:var(--color-navy);">
                             <?= htmlspecialchars($ci['title']) ?>
                         </a>
                     </td>
@@ -121,7 +121,7 @@ include __DIR__ . '/includes/header.php';
                 <span>Total</span>
                 <span style="color:var(--color-teal);">Rp<?= number_format($subtotal + 10000, 0, ',', '.') ?></span>
             </div>
-            <a href="/thriftzone/checkout.php" class="btn btn-primary" style="width:100%;margin-top:12px;">
+            <a href="/checkout.php" class="btn btn-primary" style="width:100%;margin-top:12px;">
                 <i class="bi bi-credit-card"></i> Lanjut ke Checkout
             </a>
         </div>

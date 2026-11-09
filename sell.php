@@ -8,7 +8,7 @@ session_start();
 require_once __DIR__ . '/config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $photoPath,
             ]);
             $newItemId = (int)$db->lastInsertId();
-            header('Location: /thriftzone/item.php?id=' . $newItemId . '&sold=new');
+            header('Location: /item.php?id=' . $newItemId . '&sold=new');
             exit;
         } catch (PDOException $e) {
             $errors['general'] = 'Gagal menyimpan barang. Silakan coba lagi.';

@@ -6,6 +6,6 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location: /thriftzone/');
+header('Location: /');
 exit;
 

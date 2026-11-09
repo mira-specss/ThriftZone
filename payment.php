@@ -14,7 +14,7 @@ session_start();
 require_once __DIR__ . '/config/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/login.php');
+    header('Location: /login.php');
     exit;
 }
 
@@ -37,19 +37,19 @@ try {
 }
 
 if (!$order) {
-    header('Location: /thriftzone/orders.php');
+    header('Location: /orders.php');
     exit;
 }
 
 // Cancelled orders go back to My Orders
 if ($order['status'] === 'Cancelled') {
-    header('Location: /thriftzone/orders.php');
+    header('Location: /orders.php');
     exit;
 }
 
 // If already paid, go to thank-you
 if ($order['status'] !== 'Pending Payment') {
-    header('Location: /thriftzone/thankyou.php?order_id=' . $orderId);
+    header('Location: /thankyou.php?order_id=' . $orderId);
     exit;
 }
 
@@ -71,7 +71,7 @@ include __DIR__ . '/includes/header.php';
 
         <!-- QRIS image: file is at assets/img/qris.png -->
         <img
-            src="/thriftzone/assets/img/qris.png"
+            src="/assets/img/qris.png"
             alt="QRIS Pembayaran"
             id="qrisImg"
             style="max-width:300px;margin-inline:auto;"
@@ -116,7 +116,7 @@ include __DIR__ . '/includes/header.php';
         <i class="bi bi-x-circle"></i> Batalkan Pesanan
     </button>
 
-    <a href="/thriftzone/orders.php" class="text-muted" style="font-size:13px;">
+    <a href="/orders.php" class="text-muted" style="font-size:13px;">
         Kembali ke Pesanan Saya
     </a>
 

@@ -8,7 +8,7 @@ session_start();
 require_once __DIR__ . '/config/db.php';
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: /thriftzone/');
+    header('Location: /');
     exit;
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id']   = $user['id'];
                 $_SESSION['user_name'] = $user['name'];
                 $_SESSION['flash']     = ['type' => 'success', 'message' => 'Selamat datang kembali, ' . $user['name'] . '!'];
-                header('Location: /thriftzone/');
+                header('Location: /');
                 exit;
             } else {
                 $error = 'Email atau password salah.';
@@ -94,7 +94,7 @@ include __DIR__ . '/includes/header.php';
         </form>
 
         <p class="auth-switch">
-            Belum punya akun? <a href="/thriftzone/register.php">Daftar gratis</a>
+            Belum punya akun? <a href="/register.php">Daftar gratis</a>
         </p>
     </div>
 </div>
