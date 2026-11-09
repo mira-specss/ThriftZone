@@ -1,0 +1,61 @@
+1. Risiko Financing
+2. Risiko Likuiditas4
+
+3. Liabilitas, tidak searah dengan perubahan suku bunga
+
+4. Risiko Nilai Tukar, foreign exchange yaitu risiko yang disebabkan oleh posisi asset dan liability dalam mata uang asing tidak searah dengan perubahan nilai tukar/pergerakan kurs yang merugikan
+
+5. Risiko kontinjen, yaitu risiko yang timbul sebagai akibat transaksi kontinjen, contoh: Bank garansi
+
+6. Risiko pricing, yaitu risiko kerugian dengan akibat perubahan tingkat bagi hasil, menentukan bentuk penurunan margin dari penanaman atau kerugian sebagai akibat menurunnya nilai aktiva
+
+7. Risiko Portepel, yaitu risiko yang disebabkan oleh struktur asset dan liability tidak mendukung effisiensi operasi, seperti komposisi asset kurang menghasilkan keuntungan dan komposisi liability mengarah ke biaya tinggi
+
+aktiva kiri, pasiva kanan
+.
+produk pendanaan masuk di, pasiva
+produk kredit, aktiva
+ekuitas, modal, masuk dalam pasiva
+
+aktiva vs pasiva
+asset + kewajiban + modal (equity)
+kredit = dana/tabungan modal
+
+demand deposit (giro) --> Primary Reserve, Secondary Reserve, Loans(kredit)
+saving deposit (tabungan) --> Primary Reserve, Secondary Reserve, Loans(kredit)
+time deposit (deposito) --> primary reserve, secondary reserve, loans (kredit), investasi jangka pendek
+pinjaman jangka pendek --> primary reserve, investasi jangka pendek
+pinjaman jangka Panjang --> loans (kredit), investasi jangka panjnag
+capital fund (modal) --> loans (kredit), investasi jangka Panjang, investasi jangka pendek
+
+kisi2 uts alma
+1. apa yang dimaksud dengan ALMA?
+2. apa yang dimaksud dengan ALCO?
+3. apa yang dimaksud dengan aktiva dan pasiva dalam ALMA?
+4. apa yang disebut dengan likuiditas?
+5. apa yang disebut dengan financial risk?
+6. apa yang dimaksud dengan risk gap?
+7. apa yang disebut dengan pricing risk?
+8. faluta asing dalam ALMA bertujuan untuk?
+9. sebutkan ruang lingkup ALMA!
+10. Sebutkan ruang lingkup ALCO!
+11. Rumus PROFIT adalah?
+12. Apa yang dimaksud dengan revenue?
+13. apa yang dimaksud dengan interest cost
+14. apa yang dimaksud dengan overhead
+15. apa yang dimaksud dengan tax netto?
+16. apa yang dimaksud dengan management alma
+17. apa yang dimaksud dengan management alco
+18. sebutkan fungsi alco
+19. apa yang dimaksud dengan divisi alco?
+20. apa yang disebut dengan kebijakan bank dalam pengelolaan portfolio untuk pemberian kredit?
+21. apa yang dimaksud penetapan tingkat intereset rate.
+22. apa yang dimaksud dengan kebijakan bank Indonesia dalam system moneter
+23. apa yang dimaksud dengan biaya aktiva
+24. apa yang dimaksud dengan biaya pasiva
+25. apa yang dimaksud dengan biaya dana
+26. apa yang dimaksud dengan biaya dibayar dimuka
+27. jelaskan denngan rinci hubungan dan keterkaitan alma dan alco 
+28. sebutkan post post dalam aktiva dan pasiva dalam neraca
+29. apa yang dimaksud dengan system pengadaan valuta asing
+30. jelaskan apa perbedeaan piutang dan utang dalam persamaan akuntansi (masuk dimana dalam table gtu)
