@@ -1,0 +1,15 @@
+# Gunakan image PHP dengan Apache
+FROM php:8.2-apache
+
+# Install dependencies untuk PostgreSQL
+RUN apt-get update && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
+
+# Aktifkan mod_rewrite Apache
+RUN a2enmod rewrite
+
+# Copy seluruh source code ke dalam folder root Apache
+COPY . /var/www/html/
+
+# Beri hak akses ke folder
+RUN chown -R www-data:www-data /var/www/html
